@@ -56,7 +56,7 @@ def download_mp3(interaction : Interaction, url : str):
   
   audio_to_mp3(old_video_path)
   os.remove(old_video_path)
-  final_video_path = old_video_path.split('/')[-1].split('.')[-1]
+  final_video_path = old_video_path.replace(old_video_path.split('/')[-1].split('.')[-1], "mp3")
 
   return final_video_path
 
@@ -70,8 +70,9 @@ def audio_to_mp3(path : str):
 @executor_function
 def mp3_to_8d(inputfile, outputfile, period = 200):
   # credit to https://github.com/dakshj48/8D-Audio-Converter/
+  # TODO: Decrease the duration between switching to both sides. Probably make period customizable
 
-  period = period if period > 0 else 200
+  # period = period if period > 0 else 200
 
   audio = AudioSegment.from_file(inputfile, format='mp3')
   audio = audio + AudioSegment.silent(duration=150)
