@@ -1,16 +1,14 @@
 import jishaku, discord
 
 from discord import Activity, Intents
-from typing import Literal
+from typing import Literal, Optional
 from discord.ext import commands
 from rich import print
 from jishaku.help_command import MinimalEmbedPaginatorHelp
 from internal.data import internal
-from typing import Optional
 from pathlib import Path
 from internal.logger import Logger
 from internal.sensetive import token
-# from pytube import YouTube
 
 class YouTubeTools(commands.Bot):
   def __init__(self, *args, **kwargs):
